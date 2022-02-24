@@ -2,6 +2,7 @@ package dagcmd
 
 import (
 	"fmt"
+	"github.com/ipfs/go-ipfs/core/commands/cmdutils"
 	"io"
 
 	"github.com/ipfs/go-ipfs/core/commands/cmdenv"
@@ -88,6 +89,7 @@ into an object of the specified format.
 		cmds.StringOption("input-codec", "Codec that the input object is encoded in").WithDefault("dag-json"),
 		cmds.BoolOption("pin", "Pin this object when adding."),
 		cmds.StringOption("hash", "Hash function to use").WithDefault("sha2-256"),
+		cmdutils.AllowBigBlockOption,
 	},
 	Run:  dagPut,
 	Type: OutputObject{},
